@@ -32,9 +32,7 @@ cadenaTexto1();
 
 const texto2="hola que tal Kenay, como te va por Mejico :)";
 const descompuesto=()=>console.log (texto2.split(" "));
-descompuesto();*/
- 
-
+descompuesto();
 
 //EJERCICIO NUMERO 4 COMO LO HE HECHO YO---------------------------------------------
 
