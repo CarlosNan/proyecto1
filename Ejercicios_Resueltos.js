@@ -1,6 +1,6 @@
 /*# proyecto1
 Ejercicios curso Jonathan Mircha*/
-//EJERCICIO 1 COMO LO HE HECHO, YO----------------------------------------------------
+//EJERCICIO 1 COMO LO HE HECHOs, YO----------------------------------------------------
 const texto=34526;
 function cadenaTexto(texto=""){
    
