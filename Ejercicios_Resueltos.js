@@ -329,4 +329,88 @@ const convertGrados=(grados,medida)=>{
     }
 }
 convertGrados(678,"F");
+//EJERCICIO 15 ---si en el numero binario lo empiezo por 0, por ejemplo 00110-se vuelve loco--------------------------------------------------------------------
+
+const conversorBinDecs=(numeroC=undefined,base="")=>{
+    console.log(numeroC);
+    base.toLowercase;
+    if(!numeroC)return console.log("introduce un valor numerico para convertir porfavor");
+    if(!base)return console.log("introduce en el segundo parametro si es binario o decimal porfavor");
+    if(typeof(numeroC)=="string")return console.log("introduce un valor valido porfavor");
+    
+      if(base==="binario" || base==="decimal"){
+        if(base==="decimal"){
+            console.log(0);
+            return console.log(`El numero ${numeroC} a binario es ${numeroC.toString(2)} gracias`)
+        
+        }
+
+        if(base==="binario"){
+            console.log(1);
+            console.log(numeroC);
+            return console.log(`El numero ${numeroC} a decimal es ${parseInt(numeroC,2)} gracias`);
+        
+        }
+    
+    }   
+    else {
+        console.log("introduce binario o decimal porfavor");
+    }
+
+}
+
+conversorBinDecs(342,"decimal");
+
+//EJERCICIO 16---------------calcular descuentos----------------------------------------------------------------------
+let resultadoD;
+const rebajas=(precio=undefined,descuento=undefined)=>{
+
+    (!precio)||(!descuento)
+          ?console.log("introduce un precio y un descuento porfavor")
+          :typeof(precio)===("number") && typeof(descuento)===("number")
+                ?console.log(`el resultado del ${descuento} por ciento de descuento de ${precio} es ${resultadoD=precio-(precio*descuento)/100}`)
+                :console.log("introduce valores correctos porfavor")
+}
+
+rebajas(400,20);
+rebajas(1000,10);
+rebajas();
+rebajas("ee",8)
+//EJERCICIO 17--------calcular años----------------------------------------------------------------------------
+
+const fecha=(a,b,c)=>{
+    
+
+    if(typeof(a,b,c)!="number")return console.log("la fecha no es valida");
+    if(Math.sign(a)===-1|| a>2100)return console.log("introduce un año valido");
+    if(b<0 || b>12)return console.log("introduce un mes valido porfavor");
+    if(c<1||c>31)return console.log("introduce un dia valido");
+    if(b===3 || b===5 | b===8 ||b===10){
+        if(c<1 || c>31){
+            return console.log("introduce un dia valido porfavor, ten encuenta que hay meses que tienen solo 30 dias");
+
+        }
+    }
+    if(b===2 && c>29)return (console.log("ten en cuenta que febrero solo puede tener 28 o 29 dias dependiendo del año"));
+    b--
+
+    let diaActual=new Date().getFullYear();
+
+    let mismoDia=new Date(a,b,c).getFullYear();
+
+    
+    if(mismoDia === diaActual)return console.log("Estamos en el mismo año");
+
+    
+    let fecha2=Date.parse(new Date());
+    let fecha1=Date.parse(a,b,c);
+    let añosTranscurridos=fecha2-fecha1;
+
+
+    console.info(`los años trancurridos son: ${Math.trunc(añosTranscurridos/(365*24*60*60*1000))} años`);
+    
+
+
+}
+fecha(1983,11,18);
 
