@@ -414,3 +414,59 @@ const fecha=(a,b,c)=>{
 }
 fecha(1983,11,18);
 
+
+//EJERCICION NUMERO 18-----------------contar vocales y consonmantes------------------------------------------------------
+
+const vocalConso=(texto19=undefined)=>{
+    
+    if(!texto19 || !(typeof texto19=== "string")) return console.error("intrtoduze un texto porfavor");
+    
+    let expRegular1=/[^aeiou]/ig;
+    let totalLetras=texto19.match(expRegular1);
+    
+    
+    let vocales=/[aeiou]/ig;
+    const totalVocales=texto19.match(vocales);
+
+    if(totalLetras===null)return console.info(`el total de vocales que hay son ${totalVocales.length} y el total de consonantes son 0`);
+    if(totalVocales===null)return console.info(`no hay vocales y hay ${totalLetras.length} consonantes`);
+    if(vocales!=null)return console.info(`el total de vocales que hay son ${totalVocales.length} y el total de consonantes son ${totalLetras.length}`);
+    
+    
+
+
+
+
+}
+vocalConso("Este curso Jonathan esta cundiendo muchisimo, gracias");
+
+//Ejercicio 19----------------comprobar nombre y apellidos---------------------------------------------------------------
+
+const nombreApell=(nom=undefined)=>{
+    if(!nom)return console.warn("introduce un nombre y apellido porfavor");
+    if(typeof(nom)==="number")return console.error("numeros no porfavor");
+    let RegExp=/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
+    let resultadoE=RegExp.test(nom);
+    (resultadoE===true)
+    ?console.info("el dato introducido si que es valido, muy bien campeon!!!!!:)")
+    :console.info("el dato introducido no es valido, acuerdate de mirar de que tanto el nombre y el apellido esten en mayusculas")
+
+}
+nombreApell("Jorge Almiros");
+
+//EJERCICIO 20-----------------comprobar email------------------------------
+
+const comprobarmail=(correo=undefined)=>{
+
+    if(!correo)return console.log("introduce un correo valido porfavor");
+    
+    let compCorreo=/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;;
+    let resCorreo=compCorreo.test(correo);
+    console.log(resCorreo)
+    if(resCorreo==true)return console.log("correo validado!!!!!");
+    else{return console.log("el correo introducido no es valido, revisalo porfavor")};
+
+
+
+}
+comprobarmail("carlos.est@gmail.com");
