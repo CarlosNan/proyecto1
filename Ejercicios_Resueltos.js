@@ -470,3 +470,60 @@ const comprobarmail=(correo=undefined)=>{
 
 }
 comprobarmail("carlos.est@gmail.com");
+
+
+//EJERCICO 21-------------------------array numeros cuadrado-----------------------------------
+
+
+let arreglo2=[];
+const arregNum=(...c)=>{
+    if(c.length===0)return console.warn("introduce numeros porfavor");
+    
+for(i=0;i<c.length;i++){
+   
+    arreglo2.push(c[i]*c[i]);
+    
+}
+
+console.info(`el valor de los numeros al cuadrado es ${arreglo2}`);
+
+}
+arregNum(2,5,8);
+
+
+//EJERCICIO 22-------------------------numero mas alto y mas bajo----------------------------
+ let numerosM;
+ let numerosMen;
+const numerosMayMen=(...c)=>{
+    if(c.length===0)return console.warn("introduce numeros porfavor");
+    numerosM=Math.max(...c);
+    numerosMen=Math.min(...c);
+
+    console.info(`el numero menor es ${numerosMen} y el numero mayor es ${numerosM}`);
+
+}
+numerosMayMen(56,98,2456,12);
+
+
+//EJERCICIO 23------------------------doble array par impar---------------------------------------
+ const arregloPar=[];
+ const arregloImpar=[]
+const dobleArr=(...c)=>{
+    if(c.length===0)return console.warn("introduce numeros porfavor");
+  
+    for(i=0;i<c.length;i++)
+         if(Math.sign(c[i])===-1)return console.warn("hay uno o mas numeros negativos, introduce solo numeros positivos");
+                 else if(!(c[i]%1===0))return console.warn("hay uno o mas numeros decimales, porfavor corrige el error");
+                         else if(c[i]%2===0){
+                             arregloPar.push(c[i]);
+                         }
+    
+                                 else if(c[i]%2===1){
+                                 arregloImpar.push(c[i]);
+                                 }
+                                    else{console.error("error inesperado, lo siento no volvera a suceder :)")};
+
+console.info(`pares: ${arregloPar}------------ impares: ${arregloImpar}`);
+
+}
+dobleArr(2,4,5,6,1,0,35,46,3);
