@@ -527,3 +527,59 @@ console.info(`pares: ${arregloPar}------------ impares: ${arregloImpar}`);
 
 }
 dobleArr(2,4,5,6,1,0,35,46,3);
+//EJERCICIO 24---------------------------arreglos ascendentes y descendentes------------------------------------------------------------
+
+const arrAsDes=(arre=undefined)=>{
+    
+    if(arre===undefined)return console.warn("no has introducido numeros");
+    if(!(arre instanceof Array))return console.warn("no has introducido un arreglo");
+    if(arre.length===0)return console.warn("introduce un arreglo lleno porfavor");
+
+    for(rec of arre){
+        if(!(typeof(rec)==="number"))return console.error("hay elementos que no son numeros");
+    }
+   
+
+let ascendente=arre.map(el=>el).sort((a,b)=>(a-b));
+
+
+let descendente=arre.map(el=>el).sort((a,b)=>(b-a));
+  
+
+console.log({
+    ascendente:ascendente,
+    descendente:descendente
+});
+
+}
+arrAsDes([22,5,32,200,800]);
+
+//EJERCICIO 25-----------------------eliminare los duplicados------------------------
+
+const dupli=(carexa=undefined)=>{
+
+    if(!carexa)return console.warn("introduce valores al array");
+    if(!(carexa instanceof Array))return console.warn("introduce un array porfavor");
+
+    carexa1=carexa.filter((car,pos)=>carexa.indexOf(car)===pos);
+    console.info(`el array sin duplicados es ${carexa1}`);
+
+
+}
+dupli([5,7,7,"u","r","u",true,true,false])
+
+//EJERCICIO 26 --------------------promedio-------------------------------------------
+
+const promedio=(numpro=undefined)=>{
+    if(!numpro)return console.warn("introduce numeros");
+    if(!(numpro instanceof Array))return console.warn("introduce un array de numeros");
+    for(npro of numpro){
+        if(typeof npro!="number")return console.error("hay algun delemento del array que no es un numero")
+    
+    }
+    
+   const numPromedio=numpro.reduce((ac,el)=>ac+el,0);
+   console.log (`el promedio del array ${numpro} es igual a ${numPromedio/2}`);
+    
+}
+promedio([3,5,6,7,8,9,2,9,87]);
