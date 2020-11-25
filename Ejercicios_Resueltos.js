@@ -583,3 +583,153 @@ const promedio=(numpro=undefined)=>{
     
 }
 promedio([3,5,6,7,8,9,2,9,87]);
+
+
+//EJERCICIO 27 ------------------------CLASES----------------------------------------------
+const generosAceptados=["Action","Adult", "Adventure", "Animation", "Biography","Comedy", "Crime", "Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+class Pelicula{
+
+    constructor({id,titulo,director,estreno,paisOrigen,genero,calificacion}){
+        
+        this.id=id;
+        this.titulo=titulo;
+        this.director=director;
+        this.estreno=estreno;
+        this.paisOrigen=paisOrigen;
+        this.genero=genero;
+        this.calificacion=calificacion;
+        
+        this.validar(id);
+        this.validar1(titulo);
+        this.validar2(director);
+        this.validar3(estreno);
+        this.validar4(paisOrigen);
+        this.validar5(genero);
+        this.validar6(calificacion);
+        
+
+    }
+
+
+        validar(id){
+                
+            if(typeof(id)!="string")return console.warn("introduce una cadena de texto porfavor");
+            if(!id)return console.warn("texto vacio del id");
+            if((/^[a-z]{2}\d{7}$/).test(id)===false)return console.warn("Introduce un IMDB valido, dos letras seguidas de siete numeros, gracias ");
+           
+        }
+        validar1(titulo){
+            if(typeof(titulo)!="string")return console.log("introduce una cadena de texto porfavor");
+            if(!titulo)return console.warn("texto vacio del titulo");
+            if(titulo.length>100)return console.warn("el titulo es demasiado largo");
+
+        }
+        validar2(director){
+            if(typeof(director)!="string")return console.log("introduce una cadena de texto porfavor en director");
+            if(!director)return console.warn("texto vacio del director");
+            if(director.length>50)return console.warn("el nombre del director es demasiado largo");
+        }
+        validar3(estreno){
+            if(typeof(estreno)!="number")return console.warn("introduce el año en numeros porfavor en año de estreno");
+            if(!estreno)return console.warn("texto vacio del año de estreno");
+            if(Math.max(estreno)>2020||Math.min(estreno)<1895)return console.warn("no puede haberse estrenado una pelicula este año, porfavor revisa la entrada de año de estreno")
+
+
+        }
+        
+        validar4(paisOrigen){
+            if(!(paisOrigen instanceof Array))return console.warn("introduce un formato Array porfavor en pais de origen");
+            if(!paisOrigen)return console.warn("texto vacio en pais de origen");
+
+
+        }
+        validar5(genero){
+            
+           if(!(genero instanceof Array))return console.warn("introduce un formato array porfavor en genero");
+            if(!genero)return console.warn("texto vacio en genero");
+            for(let gen of genero){
+                
+            if(generosAceptados.includes(gen)===false) return console.warn(`Introduce un genero valido, ejemplo: ${generosAceptados}`);
+            }
+        }
+     
+        validar6(calificacion=undefined){
+            if(typeof(calificacion)!="number")return console.warn("introduce un valor numerico porfavor en calificacion");
+            if(!calificacion)return console.warn("texto vacio en calificacion");
+            (calificacion<0||calificacion>10)
+            ?console.warn("la puntuacion tiene que ser entre 0 y 10")
+            :this.calificacion=calificacion.toFixed(1)
+        }
+        static generosad(){
+            return console.log (`los generos aceptados son ${generosAceptados}`);
+
+        }
+    
+        fichaTecnica(){
+        console.log(`FICHA TECNICA \n IMDB: ${this.id} \n TITULO: ${this.titulo}\n DIRECTOR: ${this.director}\n ESTRENO: ${this.estreno}\n PAIS ORIGEN: ${this.paisOrigen}\n GENERO: ${this.genero}\n PUNTUACION: ${this.calificacion}`);
+        }
+    
+    }    
+const peliculas1=new Pelicula({
+    id:"da1234567",
+    titulo:"Grand farwests",
+    director:"Cower Simpl",
+    estreno:1990,
+    paisOrigen:["EEUA"],
+    genero:["Comedy"],
+    calificacion:8.35,
+
+})
+peliculas1.fichaTecnica();
+
+const peliculas=[
+{
+
+
+    id:"ww3458678",
+    titulo:"krakovia",
+    director:"krudhi",
+    estreno:1895,
+    paisOrigen:["russia","portugal"],
+    genero:["Horror"],
+    calificacion:8.333,
+   
+
+
+},
+{
+
+    id:`ww3456768`,
+    titulo:"Salmorejo",
+    director:"Sr Tomate",
+    estreno:1995,
+    paisOrigen:["España"],
+    genero:["Action","Drama"],
+    calificacion:8.6
+
+
+
+
+},
+{
+
+    id:`ww3456788`,
+    titulo:"Montañas",
+    director:"Sr Cumbre",
+    estreno:1955,
+    paisOrigen:["Francia"],
+    genero:["Action","Drama"],
+    calificacion:8.5
+
+
+
+
+}];
+
+peliculas.forEach(function(e){
+    const tresPelis=new Pelicula(e)
+ 
+    tresPelis.fichaTecnica();
+})
+
+Pelicula.generosad();
